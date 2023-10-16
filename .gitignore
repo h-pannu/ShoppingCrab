@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/ShoppingCrab.MVC/appsettings.json
+/ShoppingCrab.MVC/appsettings.json
+/ShoppingCrab.MVC/appsettings.Development.json
+/ShoppingCrab.MVC/appsettings.Production.json
