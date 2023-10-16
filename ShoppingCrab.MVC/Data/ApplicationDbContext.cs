@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ShoppingCrab.MVC.Models;
 
 namespace ShoppingCrab.MVC.Data
 {
@@ -8,5 +9,7 @@ namespace ShoppingCrab.MVC.Data
         {
             
         }
+
+        public DbSet<Category> Categories { get; set; }
     }
 }
