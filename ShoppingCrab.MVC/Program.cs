@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using ShoppingCrab.MVC.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//Setting DbContext
+var getConnString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(getConnString));
 
 var app = builder.Build();
 
