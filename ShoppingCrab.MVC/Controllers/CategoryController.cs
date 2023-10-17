@@ -25,14 +25,14 @@ namespace ShoppingCrab.MVC.Controllers
         [HttpPost]
         public IActionResult Create(Category category)
         {
-            //if(category.Name == category.DisplayOrder.ToString())
-            //{
-            //    ModelState.AddModelError("Name", "Category Name cannot contain Admin keyword");
-            //}
-            //if (category.Name.ToLower() == "Admin")
-            //{
-            //    ModelState.AddModelError("", "Category Name cannot contain Admin keyword");
-            //}
+            if (category.Name == category.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("Name", "Category Name cannot be same as Display Order");
+            }
+            if (category.Name.ToLower() == "Admin")
+            {
+                ModelState.AddModelError("", "Category Name cannot contain Admin keyword");
+            }
 
             if (ModelState.IsValid)
             {
