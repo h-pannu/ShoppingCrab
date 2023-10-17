@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCrab.MVC", "ShoppingCrab.MVC\ShoppingCrab.MVC.csproj", "{811F3796-8BB9-4ECA-A445-6F49B8E2C3C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCrab.MVC", "ShoppingCrab.MVC\ShoppingCrab.MVC.csproj", "{811F3796-8BB9-4ECA-A445-6F49B8E2C3C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCrab.DataAccess", "ShoppingCrab.DataAccess\ShoppingCrab.DataAccess.csproj", "{4C4D4A93-7CBA-4716-8770-A6E63B68F929}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCrab.Models", "ShoppingCrab.Models\ShoppingCrab.Models.csproj", "{E60012EF-017C-411A-B4F7-1012E26C9632}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCrab.Utility", "ShoppingCrab.Utility\ShoppingCrab.Utility.csproj", "{7BFEAA11-1E61-4A72-AA1F-FEDA2FEF2578}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{811F3796-8BB9-4ECA-A445-6F49B8E2C3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{811F3796-8BB9-4ECA-A445-6F49B8E2C3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{811F3796-8BB9-4ECA-A445-6F49B8E2C3C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C4D4A93-7CBA-4716-8770-A6E63B68F929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C4D4A93-7CBA-4716-8770-A6E63B68F929}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C4D4A93-7CBA-4716-8770-A6E63B68F929}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C4D4A93-7CBA-4716-8770-A6E63B68F929}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E60012EF-017C-411A-B4F7-1012E26C9632}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E60012EF-017C-411A-B4F7-1012E26C9632}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E60012EF-017C-411A-B4F7-1012E26C9632}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E60012EF-017C-411A-B4F7-1012E26C9632}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BFEAA11-1E61-4A72-AA1F-FEDA2FEF2578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BFEAA11-1E61-4A72-AA1F-FEDA2FEF2578}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BFEAA11-1E61-4A72-AA1F-FEDA2FEF2578}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BFEAA11-1E61-4A72-AA1F-FEDA2FEF2578}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
