@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ShoppingCrab.MVC.Models
+namespace ShoppingCrab.Models
 {
     [Table("Category", Schema = "dbo")]
     public class Category

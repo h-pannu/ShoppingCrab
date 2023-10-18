@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using ShoppingCrab.MVC.Data;
+using ShoppingCrab.DataAccess.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

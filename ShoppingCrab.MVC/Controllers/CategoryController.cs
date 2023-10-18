@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ShoppingCrab.MVC.Data;
-using ShoppingCrab.MVC.Models;
+using ShoppingCrab.DataAccess.Data;
+using ShoppingCrab.Models;
 
 namespace ShoppingCrab.MVC.Controllers
 {

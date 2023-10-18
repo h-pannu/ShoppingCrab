@@ -15,4 +15,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ShoppingCrab.DataAccess\ShoppingCrab.DataAccess.csproj" />
+    <ProjectReference Include="..\ShoppingCrab.Models\ShoppingCrab.Models.csproj" />
+  </ItemGroup>
+
 </Project>

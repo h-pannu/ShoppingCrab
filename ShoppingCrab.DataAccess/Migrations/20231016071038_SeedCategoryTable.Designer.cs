@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ShoppingCrab.MVC.Data;
+using ShoppingCrab.DataAccess.Data;
 
 #nullable disable
 
-namespace ShoppingCrab.MVC.Migrations
+namespace ShoppingCrab.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20231016071038_SeedCategoryTable")]

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ShoppingCrab.MVC.Models;
+using ShoppingCrab.Models;
 using System.Diagnostics;
 
 namespace ShoppingCrab.MVC.Controllers

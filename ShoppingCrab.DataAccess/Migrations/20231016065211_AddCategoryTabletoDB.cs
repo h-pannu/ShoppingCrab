@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace ShoppingCrab.MVC.Migrations
+namespace ShoppingCrab.DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class AddCategoryTabletoDB : Migration

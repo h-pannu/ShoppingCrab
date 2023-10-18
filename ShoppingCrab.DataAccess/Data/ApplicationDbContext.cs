@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ShoppingCrab.MVC.Models;
+using ShoppingCrab.Models;
 
-namespace ShoppingCrab.MVC.Data
+namespace ShoppingCrab.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {

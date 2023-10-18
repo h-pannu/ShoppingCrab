@@ -1,4 +1,4 @@
-namespace ShoppingCrab.MVC.Models
+namespace ShoppingCrab.Models
 {
     public class ErrorViewModel
     {
