@@ -18,7 +18,7 @@ namespace ShoppingCrab.DataAccess.Repository
         }
         public void Update(Product product)
         {
-            _context.Products.Add(product);
+            _context.Products.Update(product);
         }
     }
 }
