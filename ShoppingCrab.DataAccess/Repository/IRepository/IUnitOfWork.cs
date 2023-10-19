@@ -1,5 +1,4 @@
-﻿using ShoppingCrab.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace ShoppingCrab.DataAccess.Repository.IRepository
 {
-    public interface ICategoryRepository : IRepository<Category>
+    public interface IUnitOfWork
     {
-        void Update(Category category);
+        ICategoryRepository CategoryRepository { get; }
+        void Save();
     }
 }

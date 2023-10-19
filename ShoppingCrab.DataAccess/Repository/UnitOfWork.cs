@@ -1,26 +1,27 @@
 ﻿using ShoppingCrab.DataAccess.Data;
 using ShoppingCrab.DataAccess.Repository.IRepository;
-using ShoppingCrab.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ShoppingCrab.DataAccess.Repository
 {
-    public class CategoryRepository : Repository<Category>, ICategoryRepository
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationDbContext _context;
-        public CategoryRepository(ApplicationDbContext applicationDbContext) : base(applicationDbContext)
+        public ICategoryRepository CategoryRepository {  get; private set; }
+
+        public UnitOfWork(ApplicationDbContext applicationDbContext)
         {
             _context = applicationDbContext;
+            CategoryRepository = new CategoryRepository(_context);
         }
 
-        public void Update(Category category)
+        public void Save()
         {
-            _context.Categories.Update(category);
+            _context.SaveChanges();
         }
     }
 }

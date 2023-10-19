@@ -7,14 +7,14 @@ namespace ShoppingCrab.MVC.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly ICategoryRepository _categoryRepository;
-        public CategoryController(ICategoryRepository categoryRepository)
+        private readonly IUnitOfWork _unitOfWork;
+        public CategoryController(IUnitOfWork unitOfWork)
         {
-            _categoryRepository = categoryRepository;
+            _unitOfWork = unitOfWork;
         }
         public IActionResult Index()
         {
-            List<Category> objCategoryList = _categoryRepository.GetAll().ToList();
+            List<Category> objCategoryList = _unitOfWork.CategoryRepository.GetAll().ToList();
             return View(objCategoryList);
         }
 
@@ -37,8 +37,8 @@ namespace ShoppingCrab.MVC.Controllers
 
             if (ModelState.IsValid)
             {
-                _categoryRepository.Add(category);
-                _categoryRepository.Save();
+                _unitOfWork.CategoryRepository.Add(category);
+                _unitOfWork.Save();
                 //_context.Categories.Add(category);
                 //_context.SaveChanges();
                 TempData["success"] = "Category created successfully";
@@ -55,7 +55,7 @@ namespace ShoppingCrab.MVC.Controllers
             }
 
             //Category? category = _context.Categories.Find(id);
-            Category? category = _categoryRepository.Get(u=>u.Id==id);
+            Category? category = _unitOfWork.CategoryRepository.Get(u=>u.Id==id);
 
             //var category = _context.Categories.FirstOrDefault(c => c.Id == id);
             //var category = _context.Categories.Where(i=>i.Id==id).FirstOrDefault();
@@ -84,8 +84,8 @@ namespace ShoppingCrab.MVC.Controllers
             {
                 //_context.Categories.Update(category);
                 //_context.SaveChanges();
-                _categoryRepository.Update(category);
-                _categoryRepository.Save();
+                _unitOfWork.CategoryRepository.Update(category);
+                _unitOfWork.Save();
 
                 TempData["success"] = "Category updated successfully";
                 return RedirectToAction("Index", "Category");
@@ -101,7 +101,7 @@ namespace ShoppingCrab.MVC.Controllers
             }
 
             //Category? category = _context.Categories.Find(id);
-            Category? category = _categoryRepository.Get(i=>i.Id==id);
+            Category? category = _unitOfWork.CategoryRepository.Get(i=>i.Id==id);
 
             //var category = _context.Categories.FirstOrDefault(c => c.Id == id);
             //var category = _context.Categories.Where(i=>i.Id==id).FirstOrDefault();
@@ -118,7 +118,7 @@ namespace ShoppingCrab.MVC.Controllers
         public IActionResult DeletePOST(int? id)
         {
             //Category? category = _context.Categories.Find(id);
-            Category? category = _categoryRepository.Get(i=>i.Id == id);
+            Category? category = _unitOfWork.CategoryRepository.Get(i=>i.Id == id);
 
             if (category == null)
             {
@@ -127,8 +127,8 @@ namespace ShoppingCrab.MVC.Controllers
 
             //_context.Categories.Remove(category);
             //_context.SaveChanges();
-            _categoryRepository.Remove(category);
-            _categoryRepository.Save();
+            _unitOfWork.CategoryRepository.Remove(category);
+            _unitOfWork.Save();
 
             TempData["success"] = "Category deleted successfully";
             return RedirectToAction("Index", "Category");
