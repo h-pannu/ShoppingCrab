@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ShoppingCrab.DataAccess.Data;
+using ShoppingCrab.DataAccess.Repository;
+using ShoppingCrab.DataAccess.Repository.IRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,8 @@ builder.Services.AddControllersWithViews();
 //Setting DbContext
 var getConnString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(getConnString));
+
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 var app = builder.Build();
 
