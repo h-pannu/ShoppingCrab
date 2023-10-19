@@ -3,8 +3,9 @@ using ShoppingCrab.DataAccess.Data;
 using ShoppingCrab.DataAccess.Repository.IRepository;
 using ShoppingCrab.Models;
 
-namespace ShoppingCrab.MVC.Controllers
+namespace ShoppingCrab.MVC.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -55,7 +56,7 @@ namespace ShoppingCrab.MVC.Controllers
             }
 
             //Category? category = _context.Categories.Find(id);
-            Category? category = _unitOfWork.CategoryRepository.Get(u=>u.Id==id);
+            Category? category = _unitOfWork.CategoryRepository.Get(u => u.Id == id);
 
             //var category = _context.Categories.FirstOrDefault(c => c.Id == id);
             //var category = _context.Categories.Where(i=>i.Id==id).FirstOrDefault();
@@ -101,7 +102,7 @@ namespace ShoppingCrab.MVC.Controllers
             }
 
             //Category? category = _context.Categories.Find(id);
-            Category? category = _unitOfWork.CategoryRepository.Get(i=>i.Id==id);
+            Category? category = _unitOfWork.CategoryRepository.Get(i => i.Id == id);
 
             //var category = _context.Categories.FirstOrDefault(c => c.Id == id);
             //var category = _context.Categories.Where(i=>i.Id==id).FirstOrDefault();
@@ -118,7 +119,7 @@ namespace ShoppingCrab.MVC.Controllers
         public IActionResult DeletePOST(int? id)
         {
             //Category? category = _context.Categories.Find(id);
-            Category? category = _unitOfWork.CategoryRepository.Get(i=>i.Id == id);
+            Category? category = _unitOfWork.CategoryRepository.Get(i => i.Id == id);
 
             if (category == null)
             {
