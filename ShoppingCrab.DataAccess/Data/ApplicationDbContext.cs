@@ -24,11 +24,11 @@ namespace ShoppingCrab.DataAccess.Data
                 );
 
             modelBuilder.Entity<Product>().HasData(
-                new Product { Id = 1, Name = "Levis Pent", Description = "Beautiful Pent with 6 pockets", ListPrice = 60, Price = 57, Price50 = 52, Price100 = 48 },
-                new Product { Id = 2, Name = "Diamond Necklace", Description = "Stunning necklace in heart shape", ListPrice = 70, Price = 67, Price50 = 62, Price100 = 58 },
-                new Product { Id = 3, Name = "24 Carat Gold Ring", Description = "Real gold ring made of 24 carat gold", ListPrice = 92, Price = 87, Price50 = 82, Price100 = 78 },
-                new Product { Id = 4, Name = "Adidas Perfume", Description = "Adidas perfume with a nice fragnence to use before workout", ListPrice = 30, Price = 27, Price50 = 22, Price100 = 18 },
-                new Product { Id = 5, Name = "Boss perfume", Description = "Impress other people with rose fragnence.", ListPrice = 45, Price = 37, Price50 = 32, Price100 = 28 },
+                new Product { Id = 1, Name = "Levis Pent", Description = "Beautiful Pent with 6 pockets", ListPrice = 60, Price = 57, Price50 = 52, Price100 = 48, CategoryId = 1 },
+                new Product { Id = 2, Name = "Diamond Necklace", Description = "Stunning necklace in heart shape", ListPrice = 70, Price = 67, Price50 = 62, Price100 = 58, CategoryId = 4 },
+                new Product { Id = 3, Name = "24 Carat Gold Ring", Description = "Real gold ring made of 24 carat gold", ListPrice = 92, Price = 87, Price50 = 82, Price100 = 78, CategoryId = 4 },
+                new Product { Id = 4, Name = "Adidas Perfume", Description = "Adidas perfume with a nice fragnence to use before workout", ListPrice = 30, Price = 27, Price50 = 22, Price100 = 18, CategoryId = 5 },
+                new Product { Id = 5, Name = "Boss perfume", Description = "Impress other people with rose fragnence.", ListPrice = 45, Price = 37, Price50 = 32, Price100 = 28, CategoryId = 5 },
                 new Product
                 {
                     Id = 6,
@@ -37,7 +37,8 @@ namespace ShoppingCrab.DataAccess.Data
                     ListPrice = 99,
                     Price = 90,
                     Price50 = 85,
-                    Price100 = 80
+                    Price100 = 80,
+                    CategoryId = 2
                 },
                 new Product
                 {
@@ -47,7 +48,8 @@ namespace ShoppingCrab.DataAccess.Data
                     ListPrice = 40,
                     Price = 30,
                     Price50 = 25,
-                    Price100 = 20
+                    Price100 = 20,
+                    CategoryId = 2
                 },
                 new Product
                 {
@@ -57,7 +59,8 @@ namespace ShoppingCrab.DataAccess.Data
                     ListPrice = 55,
                     Price = 50,
                     Price50 = 40,
-                    Price100 = 35
+                    Price100 = 35,
+                    CategoryId = 2
                 },
                 new Product
                 {
@@ -67,7 +70,8 @@ namespace ShoppingCrab.DataAccess.Data
                     ListPrice = 70,
                     Price = 65,
                     Price50 = 60,
-                    Price100 = 55
+                    Price100 = 55,
+                    CategoryId = 2
                 },
                 new Product
                 {
@@ -77,7 +81,8 @@ namespace ShoppingCrab.DataAccess.Data
                     ListPrice = 30,
                     Price = 27,
                     Price50 = 25,
-                    Price100 = 20
+                    Price100 = 20,
+                    CategoryId = 2
                 },
                 new Product
                 {
@@ -87,7 +92,8 @@ namespace ShoppingCrab.DataAccess.Data
                     ListPrice = 25,
                     Price = 23,
                     Price50 = 22,
-                    Price100 = 20
+                    Price100 = 20,
+                    CategoryId = 2
                 }
                 );
 
