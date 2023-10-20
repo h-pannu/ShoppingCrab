@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ShoppingCrab.DataAccess.Repository.IRepository;
 using ShoppingCrab.Models;
+using ShoppingCrab.Models.ViewModels;
 
 namespace ShoppingCrab.MVC.Areas.Admin.Controllers
 {
@@ -21,71 +22,60 @@ namespace ShoppingCrab.MVC.Areas.Admin.Controllers
 
             return View(objProductList);
         }
-        public IActionResult Create()
+        public IActionResult Upsert(int? id)
         {
-            IEnumerable<SelectListItem> CategoryList = _unitOfWork.CategoryRepository
+            //ViewBag.CategoryList = CategoryList;
+            //ViewData["CategoryList"] = CategoryList;
+
+            ProductVM productVM = new()
+            {
+                CategoryList = _unitOfWork.CategoryRepository
                 .GetAll().Select(u => new SelectListItem
                 {
                     Text = u.Name,
                     Value = u.Id.ToString()
-                });
-            //ViewBag.CategoryList = CategoryList;
-            ViewData["CategoryList"] = CategoryList;
-
-            return View();
+                }),
+                Product = new Product()
+            };
+            if(id==null || id ==0)
+            {
+                //Create
+                return View(productVM);
+            }
+            else
+            {
+                //Update
+                productVM.Product = _unitOfWork.ProductRepository.Get(u=>u.Id == id);
+                return View(productVM);
+            }
+            
         }
         [HttpPost]
-        public IActionResult Create(Product product)
+        public IActionResult Upsert(ProductVM productVM, IFormFile? file)
         {
-            if (product.Name.ToLower() == "Admin")
+            if (productVM.Product.Name.ToLower() == "Admin")
             {
                 ModelState.AddModelError("", "Product Name cannot contain Admin keyword");
             }
 
             if (ModelState.IsValid)
             {
-                _unitOfWork.ProductRepository.Add(product);
+                _unitOfWork.ProductRepository.Add(productVM.Product);
                 _unitOfWork.Save();
                 
                 TempData["success"] = "Product created successfully";
                 return RedirectToAction("Index", "Product");
             }
-            return View();
-        }
-        public IActionResult Edit(int? id)
-        {
-            if (id == null || id == 0)
+            else
             {
-                return NotFound();
+                productVM.CategoryList = _unitOfWork.CategoryRepository
+                .GetAll().Select(u => new SelectListItem
+                {
+                    Text = u.Name,
+                    Value = u.Id.ToString()
+                });
+                return View(productVM);
             }
-
-            Product? product = _unitOfWork.ProductRepository.Get(u => u.Id == id);
-
-            if (product == null)
-            {
-                return NotFound();
-            }
-
-            return View(product);
-        }
-
-        [HttpPost]
-        public IActionResult Edit(Product product)
-        {
-            if (product.Name.ToLower() == "Admin")
-            {
-                ModelState.AddModelError("", "Product Name cannot contain Admin keyword");
-            }
-
-            if (ModelState.IsValid)
-            {
-                _unitOfWork.ProductRepository.Update(product);
-                _unitOfWork.Save();
-
-                TempData["success"] = "Product updated successfully";
-                return RedirectToAction("Index", "Product");
-            }
-            return View();
         }
 
         public IActionResult Delete(int? id)
