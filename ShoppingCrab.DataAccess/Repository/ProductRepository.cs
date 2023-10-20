@@ -18,7 +18,23 @@ namespace ShoppingCrab.DataAccess.Repository
         }
         public void Update(Product product)
         {
-            _context.Products.Update(product);
+            //_context.Products.Update(product);
+
+            var objFromDb = _context.Products.FirstOrDefault(i=>i.Id == product.Id);
+            if (objFromDb != null)
+            {
+                objFromDb.Name = product.Name;
+                objFromDb.Description = product.Description;
+                objFromDb.Price = product.Price;
+                objFromDb.ListPrice = product.ListPrice;
+                objFromDb.Price50 = product.Price50;
+                objFromDb.Price100 = product.Price100;
+                objFromDb.CategoryId = product.CategoryId;
+                if(objFromDb.ImageUrl != null)
+                {
+                    objFromDb.ImageUrl = product.ImageUrl;
+                }
+            }
         }
     }
 }
