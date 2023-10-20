@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using ShoppingCrab.DataAccess.Repository.IRepository;
 using ShoppingCrab.Models;
 
@@ -15,10 +16,21 @@ namespace ShoppingCrab.MVC.Areas.Admin.Controllers
         public IActionResult Index()
         {
             List<Product> objProductList = _unitOfWork.ProductRepository.GetAll().ToList();
+
+            
+
             return View(objProductList);
         }
         public IActionResult Create()
         {
+            IEnumerable<SelectListItem> CategoryList = _unitOfWork.CategoryRepository
+                .GetAll().Select(u => new SelectListItem
+                {
+                    Text = u.Name,
+                    Value = u.Id.ToString()
+                });
+            ViewBag.CategoryList = CategoryList;
+
             return View();
         }
         [HttpPost]
