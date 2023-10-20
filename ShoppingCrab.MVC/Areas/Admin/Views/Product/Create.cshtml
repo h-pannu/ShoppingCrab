@@ -44,7 +44,7 @@
                     <span asp-validation-for="Price100" class="text-danger"></span>
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <select asp-for=Price100 class="form-select border-0 shadow" asp-items="ViewBag.CategoryList">
+                    <select asp-for=Price100 class="form-select border-0 shadow" asp-items="@(ViewData["CategoryList"] as IEnumerable<SelectListItem>)">
                         <option disabled selected>--Select Category--</option>
                     </select>
                     <label asp-for=CategoryId class="ms-2"></label>
