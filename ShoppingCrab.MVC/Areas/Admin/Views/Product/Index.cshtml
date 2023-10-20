@@ -19,20 +19,20 @@
             </div>
         </div>
 
-        <table class="table table-bordered table-striped">
+        <table id="tblProductData" class="table table-bordered table-striped" width="100%">
             <thead>
                 <tr>
                     <th>Product Name</th>
-                    <th>Description</th>
+                    @* <th>Description</th> *@
                     <th>Category Name</th>
                     <th>List Price</th>
-                    <th>Price below 50</th>
+                    @* <th>Price below 50</th>
                     <th>Price 50+</th>
-                    <th>Price 100+</th>
+                    <th>Price 100+</th> *@
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
+           @*  <tbody>
                 @foreach (var item in Model.OrderBy(i => i.Name))
                 {
                     <tr>
@@ -55,8 +55,13 @@
                         </td>
                     </tr>
                 }
-            </tbody>
+            </tbody> *@
         </table>
     </div>
 </div>
+
+
+@section Scripts{
+    <script src="~/js/product.js"></script>
+}
 

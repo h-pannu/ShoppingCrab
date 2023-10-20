@@ -111,38 +111,38 @@ namespace ShoppingCrab.MVC.Areas.Admin.Controllers
             }
         }
 
+
+        #region API CALLS
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            List<Product> objProductList = _unitOfWork.ProductRepository.GetAll(includeProperties: "Category").ToList();
+            return Json(new { data = objProductList });
+        }
+
         public IActionResult Delete(int? id)
         {
-            if (id == null || id == 0)
+           var productToBeDeleted = _unitOfWork.ProductRepository.Get(i=>i.Id == id);
+           if(productToBeDeleted == null)
             {
-                return NotFound();
+                return Json(new { success = false, message = "Error while deleting" });
             }
-
-            Product? product = _unitOfWork.ProductRepository.Get(i => i.Id == id);
-
-            if (product == null)
+            else
             {
-                return NotFound();
-            }
+                //delete the old image
+                var oldImageUrl = Path.Combine(_webHostEnvironment.WebRootPath, productToBeDeleted.ImageUrl.TrimStart('\\'));
+                if (System.IO.File.Exists(oldImageUrl))
+                {
+                    System.IO.File.Delete(oldImageUrl);
+                }
+                _unitOfWork.ProductRepository.Remove(productToBeDeleted);
+                _unitOfWork.Save();
 
-            return View(product);
+                return Json(new { success = true, message = "Product Deleted Successfully" });
+            }
         }
 
-        [HttpPost, ActionName("Delete")]
-        public IActionResult DeletePOST(int? id)
-        {
-            Product? product = _unitOfWork.ProductRepository.Get(i => i.Id == id);
-
-            if (product == null)
-            {
-                return NotFound();
-            }
-
-            _unitOfWork.ProductRepository.Remove(product);
-            _unitOfWork.Save();
-
-            TempData["success"] = "Product deleted successfully";
-            return RedirectToAction("Index", "Product");
-        }
+        #endregion
     }
 }
